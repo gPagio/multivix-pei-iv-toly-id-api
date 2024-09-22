@@ -8,8 +8,8 @@
 		<version>3.3.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>br.edu.multivix</groupId>
-	<artifactId>pei.tolyid</artifactId>
+	<groupId>br.edu.multivix.pei</groupId>
+	<artifactId>tolyid</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Toly ID</name>
 	<description>API projeto Toly ID da disciplina de PEI da Multivix</description>
