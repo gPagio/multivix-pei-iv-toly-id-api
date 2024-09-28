@@ -1,5 +1,6 @@
-package br.edu.multivix.pei.tolyid.domain.dadosgerais;
+package br.edu.multivix.pei.tolyid.domain.amostra;
 
+import br.edu.multivix.pei.tolyid.domain.captura.Captura;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,31 +12,26 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
-import br.edu.multivix.pei.tolyid.domain.captura.Captura;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @EqualsAndHashCode(of = "id")
-@Table(name = "dados_gerais")
-@Entity(name = "DadosGerais")
-public class DadosGerais {
-    
+@Table(name = "amostra")
+@Entity(name = "Amostra")
+public class Amostra {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String localDeCaptura;
-    private String equipeResponsavel;
-    private String instituicao;
-    private Double pesoDoTatu;
-    private LocalDateTime dataCaptura;
-    private String contatoDoResponsavel;
-    private String observacoes;
+    private Boolean sangue;
+    private Boolean fezes;
+    private Boolean pelo;
+    private Boolean ectoparasitos;
+    private Boolean swab;
+    private Boolean local;
+    private String outros;
 
-    @OneToOne(mappedBy = "dadosGerais")
+    @OneToOne(mappedBy = "amostra")
     private Captura captura;
-
 }
