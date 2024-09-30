@@ -5,6 +5,7 @@ import br.edu.multivix.pei.tolyid.domain.biometria.Biometria;
 import br.edu.multivix.pei.tolyid.domain.dadosgerais.DadosGerais;
 import br.edu.multivix.pei.tolyid.domain.fichaanestesica.FichaAnestesica;
 import br.edu.multivix.pei.tolyid.domain.tatu.Tatu;
+import br.edu.multivix.pei.tolyid.domain.usuario.Usuario;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -31,6 +32,10 @@ public class Captura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @OneToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST , CascadeType.REFRESH})
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
+    private Usuario usuario;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST , CascadeType.REFRESH})
     @JoinColumn(name = "tatu_id")
