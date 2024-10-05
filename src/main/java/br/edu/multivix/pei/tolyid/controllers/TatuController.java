@@ -22,8 +22,8 @@ public class TatuController {
     @SuppressWarnings("rawtypes")
     @PostMapping(path = "/cadastrar")
     @Transactional
-    public ResponseEntity cadastrarTatu(@RequestBody @Valid DadosCadastroTatuDTO dados){
-        var dadosListagemTatuDTO = tatuService.cadastrarTatu(dados);
+    public ResponseEntity cadastraTatu(@RequestBody @Valid DadosCadastroTatuDTO dados){
+        var dadosListagemTatuDTO = tatuService.cadastraTatu(dados);
         return ResponseEntity.ok(dadosListagemTatuDTO);
     }
     
