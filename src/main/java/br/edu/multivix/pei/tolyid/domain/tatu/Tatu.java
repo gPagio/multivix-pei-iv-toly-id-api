@@ -32,4 +32,9 @@ public class Tatu {
 
     @OneToMany(mappedBy = "tatu", fetch = FetchType.LAZY)
     private List<Captura> capturas;
+
+    public Tatu (DadosCadastroTatuDTO dados){
+        this.identificacaoAnimal = dados.identificacaoAnimal().trim();
+        this.numeroMicrochip = dados.numeroMicrochip();
+    }
 }
