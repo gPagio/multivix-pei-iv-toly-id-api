@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 @EqualsAndHashCode(of = "id")
-@Table(name = "parametro_fisiologico")
+@Table(name = "parametros_fisiologicos")
 @Entity(name = "ParametroFisiologico")
 public class ParametroFisiologico {
 
