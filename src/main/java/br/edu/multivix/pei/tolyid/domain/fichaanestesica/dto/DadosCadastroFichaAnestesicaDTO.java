@@ -1,9 +1,9 @@
-package br.edu.multivix.pei.tolyid.domain.fichaanestesica;
+package br.edu.multivix.pei.tolyid.domain.fichaanestesica.dto;
 
 import java.time.LocalTime;
 import java.util.List;
 
-import br.edu.multivix.pei.tolyid.domain.parametrofisiologico.DadosCadastroParametroFisiologicoDTO;
+import br.edu.multivix.pei.tolyid.domain.parametrofisiologico.dto.DadosCadastroParametroFisiologicoDTO;
 import jakarta.validation.constraints.NotNull;
 
 public record DadosCadastroFichaAnestesicaDTO(  @NotNull(message = "O tipo de anestésico ou dose deve ser informado para completar a ficha anestésica de uma captura!")

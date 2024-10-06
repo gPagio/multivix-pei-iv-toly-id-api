@@ -1,4 +1,4 @@
-package br.edu.multivix.pei.tolyid.domain.parametrofisiologico;
+package br.edu.multivix.pei.tolyid.domain.parametrofisiologico.dto;
 
 import jakarta.validation.constraints.NotNull;
 

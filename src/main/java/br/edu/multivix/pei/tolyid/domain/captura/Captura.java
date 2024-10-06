@@ -2,6 +2,7 @@ package br.edu.multivix.pei.tolyid.domain.captura;
 
 import br.edu.multivix.pei.tolyid.domain.amostra.Amostra;
 import br.edu.multivix.pei.tolyid.domain.biometria.Biometria;
+import br.edu.multivix.pei.tolyid.domain.captura.dto.DadosCadastroCapturaDTO;
 import br.edu.multivix.pei.tolyid.domain.dadosgerais.DadosGerais;
 import br.edu.multivix.pei.tolyid.domain.fichaanestesica.FichaAnestesica;
 import br.edu.multivix.pei.tolyid.domain.tatu.Tatu;

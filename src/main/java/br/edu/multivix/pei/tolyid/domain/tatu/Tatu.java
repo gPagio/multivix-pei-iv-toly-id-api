@@ -3,6 +3,7 @@ package br.edu.multivix.pei.tolyid.domain.tatu;
 import java.util.List;
 
 import br.edu.multivix.pei.tolyid.domain.captura.Captura;
+import br.edu.multivix.pei.tolyid.domain.tatu.dto.DadosCadastroTatuDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;

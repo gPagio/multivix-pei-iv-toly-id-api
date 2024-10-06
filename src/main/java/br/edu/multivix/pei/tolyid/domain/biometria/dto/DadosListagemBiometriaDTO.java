@@ -1,4 +1,6 @@
-package br.edu.multivix.pei.tolyid.domain.biometria;
+package br.edu.multivix.pei.tolyid.domain.biometria.dto;
+
+import br.edu.multivix.pei.tolyid.domain.biometria.Biometria;
 
 public record DadosListagemBiometriaDTO(Long id,
                                         Double comprimentoTotal,

@@ -1,6 +1,8 @@
-package br.edu.multivix.pei.tolyid.domain.dadosgerais;
+package br.edu.multivix.pei.tolyid.domain.dadosgerais.dto;
 
 import java.time.LocalDateTime;
+
+import br.edu.multivix.pei.tolyid.domain.dadosgerais.DadosGerais;
 
 public record DadosListagemDadosGeraisDTO(Long id,
                                         String localDeCaptura,

@@ -1,4 +1,6 @@
-package br.edu.multivix.pei.tolyid.domain.parametrofisiologico;
+package br.edu.multivix.pei.tolyid.domain.parametrofisiologico.dto;
+
+import br.edu.multivix.pei.tolyid.domain.parametrofisiologico.ParametroFisiologico;
 
 public record DadosListagemParametroFisiologicoDTO(Long id,
                                                 Double frequenciaCardiaca,

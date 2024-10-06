@@ -1,4 +1,4 @@
-package br.edu.multivix.pei.tolyid.domain.amostra;
+package br.edu.multivix.pei.tolyid.domain.amostra.dto;
 
 import jakarta.validation.constraints.NotNull;
 

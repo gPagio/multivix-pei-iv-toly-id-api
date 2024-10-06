@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 import br.edu.multivix.pei.tolyid.domain.captura.Captura;
+import br.edu.multivix.pei.tolyid.domain.dadosgerais.dto.DadosCadastroDadosGeraisDTO;
 
 @AllArgsConstructor
 @NoArgsConstructor

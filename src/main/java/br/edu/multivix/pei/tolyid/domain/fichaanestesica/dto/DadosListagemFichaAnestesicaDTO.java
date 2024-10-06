@@ -1,9 +1,10 @@
-package br.edu.multivix.pei.tolyid.domain.fichaanestesica;
+package br.edu.multivix.pei.tolyid.domain.fichaanestesica.dto;
 
 import java.time.LocalTime;
 import java.util.List;
 
-import br.edu.multivix.pei.tolyid.domain.parametrofisiologico.DadosListagemParametroFisiologicoDTO;
+import br.edu.multivix.pei.tolyid.domain.fichaanestesica.FichaAnestesica;
+import br.edu.multivix.pei.tolyid.domain.parametrofisiologico.dto.DadosListagemParametroFisiologicoDTO;
 
 public record DadosListagemFichaAnestesicaDTO(Long id,
                                             String tipoAnestesicoOuDose,

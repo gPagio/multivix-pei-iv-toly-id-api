@@ -1,9 +1,9 @@
-package br.edu.multivix.pei.tolyid.domain.captura;
+package br.edu.multivix.pei.tolyid.domain.captura.dto;
 
-import br.edu.multivix.pei.tolyid.domain.amostra.DadosCadastroAmostraDTO;
-import br.edu.multivix.pei.tolyid.domain.biometria.DadosCadastroBiometriaDTO;
-import br.edu.multivix.pei.tolyid.domain.dadosgerais.DadosCadastroDadosGeraisDTO;
-import br.edu.multivix.pei.tolyid.domain.fichaanestesica.DadosCadastroFichaAnestesicaDTO;
+import br.edu.multivix.pei.tolyid.domain.amostra.dto.DadosCadastroAmostraDTO;
+import br.edu.multivix.pei.tolyid.domain.biometria.dto.DadosCadastroBiometriaDTO;
+import br.edu.multivix.pei.tolyid.domain.dadosgerais.dto.DadosCadastroDadosGeraisDTO;
+import br.edu.multivix.pei.tolyid.domain.fichaanestesica.dto.DadosCadastroFichaAnestesicaDTO;
 import jakarta.validation.constraints.NotNull;
 
 public record DadosCadastroCapturaDTO(  @NotNull(message = "É obrigatório o preenchimento dos dados gerais para o cadastro de uma captura!")

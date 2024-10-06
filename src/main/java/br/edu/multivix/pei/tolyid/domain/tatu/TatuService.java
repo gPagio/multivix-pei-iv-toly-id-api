@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.multivix.pei.tolyid.domain.TolyIdGenericException;
+import br.edu.multivix.pei.tolyid.domain.tatu.dto.DadosCadastroTatuDTO;
+import br.edu.multivix.pei.tolyid.domain.tatu.dto.DadosListagemTatuDTO;
 
 @Service
 public class TatuService {

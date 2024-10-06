@@ -1,4 +1,4 @@
-package br.edu.multivix.pei.tolyid.domain.biometria;
+package br.edu.multivix.pei.tolyid.domain.biometria.dto;
 
 import jakarta.validation.constraints.NotNull;
 

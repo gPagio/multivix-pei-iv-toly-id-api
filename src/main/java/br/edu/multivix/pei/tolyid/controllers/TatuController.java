@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.multivix.pei.tolyid.domain.tatu.DadosCadastroTatuDTO;
 import br.edu.multivix.pei.tolyid.domain.tatu.TatuService;
+import br.edu.multivix.pei.tolyid.domain.tatu.dto.DadosCadastroTatuDTO;
 import jakarta.validation.Valid;
 
 @RestController

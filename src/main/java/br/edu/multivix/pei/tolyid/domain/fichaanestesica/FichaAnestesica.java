@@ -4,6 +4,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 import br.edu.multivix.pei.tolyid.domain.captura.Captura;
+import br.edu.multivix.pei.tolyid.domain.fichaanestesica.dto.DadosCadastroFichaAnestesicaDTO;
 import br.edu.multivix.pei.tolyid.domain.parametrofisiologico.ParametroFisiologico;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

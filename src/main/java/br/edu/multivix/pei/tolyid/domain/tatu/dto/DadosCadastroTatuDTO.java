@@ -1,4 +1,4 @@
-package br.edu.multivix.pei.tolyid.domain.tatu;
+package br.edu.multivix.pei.tolyid.domain.tatu.dto;
 
 import jakarta.validation.constraints.NotNull;
 

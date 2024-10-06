@@ -1,4 +1,4 @@
-package br.edu.multivix.pei.tolyid.domain.dadosgerais;
+package br.edu.multivix.pei.tolyid.domain.dadosgerais.dto;
 
 import java.time.LocalDateTime;
 

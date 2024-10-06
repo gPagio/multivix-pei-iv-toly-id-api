@@ -1,5 +1,6 @@
 package br.edu.multivix.pei.tolyid.domain.biometria;
 
+import br.edu.multivix.pei.tolyid.domain.biometria.dto.DadosCadastroBiometriaDTO;
 import br.edu.multivix.pei.tolyid.domain.captura.Captura;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

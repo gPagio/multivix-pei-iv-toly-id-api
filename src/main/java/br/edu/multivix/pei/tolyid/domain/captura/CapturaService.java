@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.multivix.pei.tolyid.domain.TolyIdGenericException;
+import br.edu.multivix.pei.tolyid.domain.captura.dto.DadosCadastroCapturaDTO;
+import br.edu.multivix.pei.tolyid.domain.captura.dto.DadosListagemCapturaDTO;
 import br.edu.multivix.pei.tolyid.domain.tatu.TatuRepository;
 import br.edu.multivix.pei.tolyid.domain.usuario.AutenticacaoService;
 

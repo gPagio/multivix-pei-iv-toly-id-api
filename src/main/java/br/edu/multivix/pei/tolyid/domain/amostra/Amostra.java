@@ -1,5 +1,6 @@
 package br.edu.multivix.pei.tolyid.domain.amostra;
 
+import br.edu.multivix.pei.tolyid.domain.amostra.dto.DadosCadastroAmostraDTO;
 import br.edu.multivix.pei.tolyid.domain.captura.Captura;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

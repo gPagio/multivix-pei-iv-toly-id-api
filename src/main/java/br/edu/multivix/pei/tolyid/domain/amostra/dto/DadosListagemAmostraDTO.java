@@ -1,4 +1,6 @@
-package br.edu.multivix.pei.tolyid.domain.amostra;
+package br.edu.multivix.pei.tolyid.domain.amostra.dto;
+
+import br.edu.multivix.pei.tolyid.domain.amostra.Amostra;
 
 public record DadosListagemAmostraDTO(Long id,
                                     Boolean sangue,
