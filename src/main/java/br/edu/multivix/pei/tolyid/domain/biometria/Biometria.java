@@ -51,4 +51,31 @@ public class Biometria {
 
     @OneToOne(mappedBy = "biometria")
     private Captura captura;
+
+    public Biometria(DadosCadastroBiometriaDTO biometriaDTO) {
+        this.comprimentoTotal = biometriaDTO.comprimentoTotal();
+        this.comprimentoDaCabeca = biometriaDTO.comprimentoDaCabeca();
+        this.larguraDaCabeca = biometriaDTO.larguraDaCabeca();
+        this.padraoEscudoCefalico = biometriaDTO.padraoEscudoCefalico().trim();
+        this.comprimentoEscudoCefalico = biometriaDTO.comprimentoEscudoCefalico();
+        this.larguraEscudoCefalico = biometriaDTO.larguraEscudoCefalico();
+        this.larguraInterOrbital = biometriaDTO.larguraInterOrbital();
+        this.larguraInterLacrimal = biometriaDTO.larguraInterLacrimal();
+        this.comprimentoDaOrelha = biometriaDTO.comprimentoDaOrelha();
+        this.comprimentoDaCauda = biometriaDTO.comprimentoDaCauda();
+        this.larguraDaCauda = biometriaDTO.larguraDaCauda();
+        this.comprimentoEscudoEscapular = biometriaDTO.comprimentoEscudoEscapular();
+        this.semicircunferenciaEscudoEscapular = biometriaDTO.semicircunferenciaEscudoEscapular();
+        this.comprimentoEscudoPelvico = biometriaDTO.comprimentoEscudoPelvico();
+        this.semicircunferenciaEscudoPelvico = biometriaDTO.semicircunferenciaEscudoPelvico();
+        this.larguraNaSegundaCinta = biometriaDTO.larguraNaSegundaCinta();
+        this.numeroDeCintas = biometriaDTO.numeroDeCintas();
+        this.comprimentoMaoSemUnha = biometriaDTO.comprimentoMaoSemUnha();
+        this.comprimentoUnhaDaMao = biometriaDTO.comprimentoUnhaDaMao();
+        this.comprimentoPeSemUnha = biometriaDTO.comprimentoPeSemUnha();
+        this.comprimentoUnhaDoPe = biometriaDTO.comprimentoUnhaDoPe();
+        this.comprimentoDoPenis = biometriaDTO.comprimentoDoPenis();
+        this.larguraBasePenis = biometriaDTO.larguraBasePenis();
+        this.comprimentoDoClitoris = biometriaDTO.comprimentoDoClitoris();
+    }
 }

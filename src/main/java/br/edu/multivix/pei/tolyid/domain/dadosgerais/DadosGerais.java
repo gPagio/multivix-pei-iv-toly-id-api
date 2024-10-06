@@ -22,7 +22,7 @@ import br.edu.multivix.pei.tolyid.domain.captura.Captura;
 @Table(name = "dados_gerais")
 @Entity(name = "DadosGerais")
 public class DadosGerais {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -37,5 +37,15 @@ public class DadosGerais {
 
     @OneToOne(mappedBy = "dadosGerais")
     private Captura captura;
+
+    public DadosGerais(DadosCadastroDadosGeraisDTO dadosGeraisDTO) {
+        this.localDeCaptura = dadosGeraisDTO.localDeCaptura().trim();
+        this.equipeResponsavel = dadosGeraisDTO.equipeResponsavel().trim();
+        this.instituicao = dadosGeraisDTO.instituicao().trim();
+        this.pesoDoTatu = dadosGeraisDTO.pesoDoTatu();
+        this.dataCaptura = dadosGeraisDTO.dataCaptura();
+        this.contatoDoResponsavel = dadosGeraisDTO.contatoDoResponsavel().trim();
+        this.observacoes = dadosGeraisDTO.observacoes();
+    }
 
 }

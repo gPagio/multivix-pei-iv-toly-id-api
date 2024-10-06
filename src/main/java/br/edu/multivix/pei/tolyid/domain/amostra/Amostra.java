@@ -34,4 +34,14 @@ public class Amostra {
 
     @OneToOne(mappedBy = "amostra")
     private Captura captura;
+
+    public Amostra(DadosCadastroAmostraDTO amostraDTO) {
+        this.sangue = amostraDTO.sangue();
+        this.fezes = amostraDTO.fezes();
+        this.pelo = amostraDTO.pelo();
+        this.ectoparasitos = amostraDTO.ectoparasitos();
+        this.swab = amostraDTO.swab();
+        this.local = amostraDTO.local();
+        this.outros = amostraDTO.outros().trim(); 
+    }
 }

@@ -34,4 +34,11 @@ public class ParametroFisiologico {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ficha_anestesica_id")
     private FichaAnestesica fichaAnestesica;
+
+    public ParametroFisiologico(DadosCadastroParametroFisiologicoDTO parametroFisiologicoDTO) {
+        this.frequenciaCardiaca = parametroFisiologicoDTO.frequenciaCardiaca();
+        this.frequenciaRespiratoria = parametroFisiologicoDTO.frequenciaRespiratoria();
+        this.oximetria = parametroFisiologicoDTO.oximetria();
+        this.temperatura = parametroFisiologicoDTO.temperatura();
+    }
 }

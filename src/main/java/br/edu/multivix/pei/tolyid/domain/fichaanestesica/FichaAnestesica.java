@@ -1,5 +1,10 @@
 package br.edu.multivix.pei.tolyid.domain.fichaanestesica;
 
+import java.time.LocalTime;
+import java.util.List;
+
+import br.edu.multivix.pei.tolyid.domain.captura.Captura;
+import br.edu.multivix.pei.tolyid.domain.parametrofisiologico.ParametroFisiologico;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -12,12 +17,6 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalTime;
-import java.util.List;
-
-import br.edu.multivix.pei.tolyid.domain.captura.Captura;
-import br.edu.multivix.pei.tolyid.domain.parametrofisiologico.ParametroFisiologico;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -42,4 +41,13 @@ public class FichaAnestesica {
 
     @OneToOne(mappedBy = "fichaAnestesica")
     private Captura captura;
+
+    public FichaAnestesica(DadosCadastroFichaAnestesicaDTO fichaAnestesicaDTO) {
+        this.tipoAnestesicoOuDose = fichaAnestesicaDTO.tipoAnestesicoOuDose().trim();
+        this.viaDeAdministracao = fichaAnestesicaDTO.viaDeAdministracao().trim();
+        this.aplicacao = fichaAnestesicaDTO.aplicacao();
+        this.inducao = fichaAnestesicaDTO.inducao();
+        this.retorno = fichaAnestesicaDTO.retorno();
+        this.parametrosFisiologicos = fichaAnestesicaDTO.parametrosFisiologicos().stream().map(p -> new ParametroFisiologico(p)).toList();
+    }
 }

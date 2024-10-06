@@ -9,4 +9,15 @@ public record DadosListagemDadosGeraisDTO(Long id,
                                         Double pesoDoTatu,
                                         LocalDateTime dataCaptura,
                                         String contatoDoResponsavel,
-                                        String observacoes) { }
+                                        String observacoes) {
+    public DadosListagemDadosGeraisDTO(DadosGerais dadosGerais){
+        this(dadosGerais.getId(),
+             dadosGerais.getLocalDeCaptura(),
+             dadosGerais.getEquipeResponsavel(),
+             dadosGerais.getInstituicao(),
+             dadosGerais.getPesoDoTatu(),
+             dadosGerais.getDataCaptura(),
+             dadosGerais.getContatoDoResponsavel(),
+             dadosGerais.getObservacoes());
+    }
+}

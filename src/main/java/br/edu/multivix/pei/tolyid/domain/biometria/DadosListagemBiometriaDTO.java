@@ -24,4 +24,33 @@ public record DadosListagemBiometriaDTO(Long id,
                                         Double comprimentoUnhaDoPe,
                                         Double comprimentoDoPenis,
                                         Double larguraBasePenis,
-                                        Double comprimentoDoClitoris) { }
+                                        Double comprimentoDoClitoris) {
+
+    public DadosListagemBiometriaDTO(Biometria biometria) {
+        this(biometria.getId(),
+             biometria.getComprimentoTotal(),
+             biometria.getComprimentoDaCabeca(),
+             biometria.getLarguraDaCabeca(),
+             biometria.getPadraoEscudoCefalico(),
+             biometria.getComprimentoEscudoCefalico(),
+             biometria.getLarguraEscudoCefalico(),
+             biometria.getLarguraInterOrbital(),
+             biometria.getLarguraInterLacrimal(),
+             biometria.getComprimentoDaOrelha(),
+             biometria.getComprimentoDaCauda(),
+             biometria.getLarguraDaCauda(),
+             biometria.getComprimentoEscudoEscapular(),
+             biometria.getSemicircunferenciaEscudoEscapular(),
+             biometria.getComprimentoEscudoPelvico(),
+             biometria.getSemicircunferenciaEscudoPelvico(),
+             biometria.getLarguraNaSegundaCinta(),
+             biometria.getNumeroDeCintas(),
+             biometria.getComprimentoMaoSemUnha(),
+             biometria.getComprimentoUnhaDaMao(),
+             biometria.getComprimentoPeSemUnha(),
+             biometria.getComprimentoUnhaDoPe(),
+             biometria.getComprimentoDoPenis(),
+             biometria.getLarguraBasePenis(),
+             biometria.getComprimentoDoClitoris());
+    }
+}

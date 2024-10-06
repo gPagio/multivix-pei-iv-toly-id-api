@@ -11,4 +11,14 @@ public record DadosListagemFichaAnestesicaDTO(Long id,
                                             LocalTime aplicacao,
                                             LocalTime inducao,
                                             LocalTime retorno,
-                                            List<DadosListagemParametroFisiologicoDTO> parametrosFisiologicos) { }
+                                            List<DadosListagemParametroFisiologicoDTO> parametrosFisiologicos) {
+    public DadosListagemFichaAnestesicaDTO(FichaAnestesica fichaAnestesica){
+        this(fichaAnestesica.getId(),
+             fichaAnestesica.getTipoAnestesicoOuDose(),
+             fichaAnestesica.getViaDeAdministracao(),
+             fichaAnestesica.getAplicacao(),
+             fichaAnestesica.getInducao(),
+             fichaAnestesica.getRetorno(),
+             fichaAnestesica.getParametrosFisiologicos().stream().map(p -> new DadosListagemParametroFisiologicoDTO(p)).toList());
+    }
+}

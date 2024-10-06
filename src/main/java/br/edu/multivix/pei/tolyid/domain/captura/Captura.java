@@ -56,4 +56,15 @@ public class Captura {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "amostra_id", referencedColumnName = "id")
     private Amostra amostra;
+
+    public Captura (Usuario usuario,
+                    Tatu tatu,
+                    DadosCadastroCapturaDTO dados){
+        this.usuario = usuario;
+        this.tatu = tatu;
+        this.dadosGerais = new DadosGerais(dados.dadosGerais());
+        this.fichaAnestesica = new FichaAnestesica(dados.fichaAnestesica());
+        this.biometria = new Biometria(dados.biometria());
+        this.amostra = new Amostra(dados.amostra());
+    }
 }
