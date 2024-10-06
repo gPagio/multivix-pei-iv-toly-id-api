@@ -31,6 +31,7 @@ public class Biometria {
     private Double comprimentoEscudoCefalico;
     private Double larguraEscudoCefalico;
     private Double larguraInterOrbital;
+    private Double larguraInterLacrimal;
     private Double comprimentoDaOrelha;
     private Double comprimentoDaCauda;
     private Double larguraDaCauda;
