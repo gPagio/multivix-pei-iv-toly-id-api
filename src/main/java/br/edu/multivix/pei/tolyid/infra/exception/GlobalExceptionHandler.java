@@ -1,14 +1,17 @@
 package br.edu.multivix.pei.tolyid.infra.exception;
 
-import java.nio.file.AccessDeniedException;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.auth0.jwt.exceptions.TokenExpiredException;
 
 import br.edu.multivix.pei.tolyid.domain.TolyIdGenericException;
 import jakarta.persistence.EntityNotFoundException;
@@ -38,20 +41,20 @@ public class GlobalExceptionHandler {
         return ResponseEntity.badRequest().body(ex.getMessage());
     }
 
-    // @ExceptionHandler(BadCredentialsException.class)
-    // public ResponseEntity tratarErroBadCredentials() {
-    //     return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciais inválidas");
-    // }
+    @ExceptionHandler(BadCredentialsException.class)
+    public ResponseEntity tratarErroBadCredentials() {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciais inválidas");
+    }
 
-    // @ExceptionHandler(TokenExpiredException.class)
-    // public ResponseEntity tratarErroTokenExpiredException() {
-    //     return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token expirado ou inválido!");
-    // }
+    @ExceptionHandler(TokenExpiredException.class)
+    public ResponseEntity tratarErroTokenExpiredException() {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token expirado ou inválido!");
+    }
 
-    // @ExceptionHandler(AuthenticationException.class)
-    // public ResponseEntity tratarErroAuthentication() {
-    //     return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Falha na autenticação");
-    // }
+    @ExceptionHandler(AuthenticationException.class)
+    public ResponseEntity tratarErroAuthentication() {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Falha na autenticação");
+    }
 
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity tratarErroAcessoNegado() {
