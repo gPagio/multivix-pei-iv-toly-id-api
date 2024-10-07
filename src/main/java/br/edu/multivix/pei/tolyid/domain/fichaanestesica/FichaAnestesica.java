@@ -2,10 +2,13 @@ package br.edu.multivix.pei.tolyid.domain.fichaanestesica;
 
 import java.time.LocalTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import br.edu.multivix.pei.tolyid.domain.captura.Captura;
 import br.edu.multivix.pei.tolyid.domain.fichaanestesica.dto.DadosCadastroFichaAnestesicaDTO;
 import br.edu.multivix.pei.tolyid.domain.parametrofisiologico.ParametroFisiologico;
+import br.edu.multivix.pei.tolyid.domain.parametrofisiologico.dto.DadosCadastroParametroFisiologicoDTO;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -37,7 +40,7 @@ public class FichaAnestesica {
     private LocalTime inducao;
     private LocalTime retorno;
 
-    @OneToMany(mappedBy = "fichaAnestesica", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "fichaAnestesica", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<ParametroFisiologico> parametrosFisiologicos;
 
     @OneToOne(mappedBy = "fichaAnestesica")
@@ -49,6 +52,15 @@ public class FichaAnestesica {
         this.aplicacao = fichaAnestesicaDTO.aplicacao();
         this.inducao = fichaAnestesicaDTO.inducao();
         this.retorno = fichaAnestesicaDTO.retorno();
-        this.parametrosFisiologicos = fichaAnestesicaDTO.parametrosFisiologicos().stream().map(p -> new ParametroFisiologico(p)).toList();
+        setParametrosFisiologicos(listDTOCadastroToListParamFisio(fichaAnestesicaDTO.parametrosFisiologicos()));
+    }
+
+    public void setParametrosFisiologicos(List<ParametroFisiologico> parametrosFisiologicos){
+        parametrosFisiologicos.forEach(p -> p.setFichaAnestesica(this));
+        this.parametrosFisiologicos = parametrosFisiologicos;
+    }
+
+    private List<ParametroFisiologico> listDTOCadastroToListParamFisio(List<DadosCadastroParametroFisiologicoDTO> list){
+        return list.stream().map(p -> new ParametroFisiologico(p)).collect(Collectors.toList());
     }
 }

@@ -2,6 +2,7 @@ package br.edu.multivix.pei.tolyid.domain.parametrofisiologico;
 
 import br.edu.multivix.pei.tolyid.domain.fichaanestesica.FichaAnestesica;
 import br.edu.multivix.pei.tolyid.domain.parametrofisiologico.dto.DadosCadastroParametroFisiologicoDTO;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -32,7 +33,7 @@ public class ParametroFisiologico {
     private Double oximetria;
     private Double temperatura;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "ficha_anestesica_id")
     private FichaAnestesica fichaAnestesica;
 
@@ -41,5 +42,9 @@ public class ParametroFisiologico {
         this.frequenciaRespiratoria = parametroFisiologicoDTO.frequenciaRespiratoria();
         this.oximetria = parametroFisiologicoDTO.oximetria();
         this.temperatura = parametroFisiologicoDTO.temperatura();
+    }
+
+    public void setFichaAnestesica(FichaAnestesica fichaAnestesica) {
+        this.fichaAnestesica = fichaAnestesica;
     }
 }
