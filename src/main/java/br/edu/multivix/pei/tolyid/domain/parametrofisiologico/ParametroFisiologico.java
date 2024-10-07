@@ -33,7 +33,7 @@ public class ParametroFisiologico {
     private Double oximetria;
     private Double temperatura;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "ficha_anestesica_id")
     private FichaAnestesica fichaAnestesica;
 
