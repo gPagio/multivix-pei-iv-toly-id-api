@@ -2,9 +2,7 @@ package br.edu.multivix.pei.tolyid.domain.parametrofisiologico;
 
 import br.edu.multivix.pei.tolyid.domain.fichaanestesica.FichaAnestesica;
 import br.edu.multivix.pei.tolyid.domain.parametrofisiologico.dto.DadosCadastroParametroFisiologicoDTO;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
