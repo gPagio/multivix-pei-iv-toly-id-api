@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.edu.multivix.pei.tolyid.domain.captura.Captura;
 import br.edu.multivix.pei.tolyid.domain.tatu.dto.DadosCadastroTatuDTO;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -31,7 +32,7 @@ public class Tatu {
     private String identificacaoAnimal;
     private Integer numeroMicrochip;
 
-    @OneToMany(mappedBy = "tatu", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "tatu", fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST , CascadeType.REFRESH})
     private List<Captura> capturas;
 
     public Tatu (DadosCadastroTatuDTO dados){
