@@ -1,5 +1,7 @@
 package br.edu.multivix.pei.tolyid.domain.captura;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +33,13 @@ public class CapturaService {
         var captura = new Captura(usuario, tatu, dados);
         capturaRepository.save(captura);
         return new DadosListagemCapturaDTO(captura);
+    }
+
+    public DadosListagemCapturaDTO listaCapturaPorId(Long id) {
+        Optional<Captura> captura = capturaRepository.findById(id);
+        if (captura.isEmpty()) throw new TolyIdGenericException("Não existe nenhuma captura com o id informado!");
+
+        return new DadosListagemCapturaDTO(captura.get());
     }
 
 }
