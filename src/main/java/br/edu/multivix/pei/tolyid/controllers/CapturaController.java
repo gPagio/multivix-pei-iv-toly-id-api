@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import br.edu.multivix.pei.tolyid.domain.captura.CapturaRepository;
 import br.edu.multivix.pei.tolyid.domain.captura.CapturaService;
@@ -31,9 +32,10 @@ public class CapturaController {
 
     @PostMapping(path = "/cadastrar/{idTatu}")
     @Transactional
-    public ResponseEntity cadastraCaptura (@PathVariable Long idTatu, @RequestBody @Valid DadosCadastroCapturaDTO dados){
+    public ResponseEntity cadastraCaptura (@PathVariable Long idTatu, @RequestBody @Valid DadosCadastroCapturaDTO dados, UriComponentsBuilder uriComponentsBuilder){
         var dadosListagemCaptura = capturaService.cadastraCaptura(idTatu, dados);
-        return ResponseEntity.ok(dadosListagemCaptura);
+        var uri = uriComponentsBuilder.path("/capturas/listar/{id}").buildAndExpand(dadosListagemCaptura.id()).toUri();
+        return ResponseEntity.created(uri).body(dadosListagemCaptura);
     }
 
     @GetMapping(path = "/listar/{id}")
