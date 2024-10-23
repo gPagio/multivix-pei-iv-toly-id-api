@@ -36,15 +36,15 @@ public class CapturaController {
     @PostMapping(path = "/cadastrar/{idTatu}")
     @Transactional
     public ResponseEntity cadastraCaptura (@PathVariable Long idTatu, @RequestBody @Valid DadosCadastroCapturaDTO dados, UriComponentsBuilder uriComponentsBuilder){
-        var dadosListagemCaptura = capturaService.cadastraCaptura(idTatu, dados);
-        var uri = uriComponentsBuilder.path("/capturas/listar/{id}").buildAndExpand(dadosListagemCaptura.id()).toUri();
-        return ResponseEntity.created(uri).body(dadosListagemCaptura);
+        var dadosListagemCapturaDTO = capturaService.cadastraCaptura(idTatu, dados);
+        var uri = uriComponentsBuilder.path("/capturas/listar/{id}").buildAndExpand(dadosListagemCapturaDTO.id()).toUri();
+        return ResponseEntity.created(uri).body(dadosListagemCapturaDTO);
     }
 
     @GetMapping(path = "/listar/{id}")
     public ResponseEntity listaCapturaPorId(@PathVariable Long id){
-        var dadosListagemTatuDTO = capturaService.listaCapturaPorId(id);
-        return ResponseEntity.ok(dadosListagemTatuDTO);
+        var dadosListagemCapturaDTO = capturaService.listaCapturaPorId(id);
+        return ResponseEntity.ok(dadosListagemCapturaDTO);
     }
 
 
@@ -64,7 +64,8 @@ public class CapturaController {
     @PutMapping(path = "/atualizar/{id}")
     @Transactional
     public ResponseEntity atualizaCapturaPorId(@PathVariable Long id, @RequestBody DadosAtualizacaoCapturaDTO dados){
-        return null;
+        var dadosListagemCapturaDTO = capturaService.atualizaCapturaPorId(id, dados);
+        return ResponseEntity.ok(dadosListagemCapturaDTO);
     }
 
 }

@@ -1,11 +1,10 @@
 package br.edu.multivix.pei.tolyid.domain.captura;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.multivix.pei.tolyid.domain.TolyIdGenericException;
+import br.edu.multivix.pei.tolyid.domain.captura.dto.DadosAtualizacaoCapturaDTO;
 import br.edu.multivix.pei.tolyid.domain.captura.dto.DadosCadastroCapturaDTO;
 import br.edu.multivix.pei.tolyid.domain.captura.dto.DadosListagemCapturaDTO;
 import br.edu.multivix.pei.tolyid.domain.tatu.TatuRepository;
@@ -36,16 +35,20 @@ public class CapturaService {
     }
 
     public DadosListagemCapturaDTO listaCapturaPorId(Long id) {
-        Optional<Captura> captura = capturaRepository.findById(id);
-        if (captura.isEmpty()) throw new TolyIdGenericException("Não existe nenhuma captura com o id informado!");
-
-        return new DadosListagemCapturaDTO(captura.get());
+        if (!capturaRepository.existsById(id)) throw new TolyIdGenericException("Não existe nenhuma captura com o id informado!");
+        var captura = capturaRepository.findById(id).get();
+        return new DadosListagemCapturaDTO(captura);
     }
 
     public void deletaCapturaPorId(Long id) {
-        Optional<Captura> captura = capturaRepository.findById(id);
-        if (captura.isEmpty()) throw new TolyIdGenericException("Não existe nenhuma captura com o id informado!");
-        
-        capturaRepository.delete(captura.get());
+        if (!capturaRepository.existsById(id)) throw new TolyIdGenericException("Não existe nenhuma captura com o id informado!");
+        capturaRepository.deleteById(id);
+    }
+
+    public DadosListagemCapturaDTO atualizaCapturaPorId(Long id, DadosAtualizacaoCapturaDTO dados) {
+        if (!capturaRepository.existsById(id)) throw new TolyIdGenericException("Não existe nenhuma captura com o id informado!");
+
+
+        return new DadosListagemCapturaDTO(null);
     }
 }
