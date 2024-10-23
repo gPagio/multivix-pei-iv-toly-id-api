@@ -16,6 +16,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import br.edu.multivix.pei.tolyid.domain.captura.CapturaRepository;
 import br.edu.multivix.pei.tolyid.domain.captura.CapturaService;
+import br.edu.multivix.pei.tolyid.domain.captura.dto.DadosAtualizacaoCapturaDTO;
 import br.edu.multivix.pei.tolyid.domain.captura.dto.DadosCadastroCapturaDTO;
 import br.edu.multivix.pei.tolyid.domain.captura.dto.DadosListagemCapturaDTO;
 import jakarta.validation.Valid;
@@ -56,6 +57,11 @@ public class CapturaController {
     public ResponseEntity deletaCapturaPorId(@PathVariable Long id){
         capturaService.deletaCapturaPorId(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping(path = "/atualizar/{id}")
+    public ResponseEntity atualizaCapturaPorId(@PathVariable Long id, @RequestBody @Valid DadosAtualizacaoCapturaDTO dados){
+        return null;
     }
 
 }
