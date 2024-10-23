@@ -5,6 +5,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -49,6 +50,12 @@ public class CapturaController {
     public ResponseEntity listaTodasAsCapturas(@PageableDefault(size = 10, sort = "id") Pageable paginacao){
         var page = capturaRepository.findAll(paginacao).map(DadosListagemCapturaDTO::new);
         return ResponseEntity.ok(page);
+    }
+
+    @DeleteMapping(path = "/deletar/{id}")
+    public ResponseEntity deletaCapturaPorId(@PathVariable Long id){
+        capturaService.deletaCapturaPorId(id);
+        return ResponseEntity.noContent().build();
     }
 
 }

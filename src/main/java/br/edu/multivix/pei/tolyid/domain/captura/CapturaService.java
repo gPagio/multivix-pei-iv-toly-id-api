@@ -42,4 +42,10 @@ public class CapturaService {
         return new DadosListagemCapturaDTO(captura.get());
     }
 
+    public void deletaCapturaPorId(Long id) {
+        Optional<Captura> captura = capturaRepository.findById(id);
+        if (captura.isEmpty()) throw new TolyIdGenericException("Não existe nenhuma captura com o id informado!");
+        
+        capturaRepository.delete(captura.get());
+    }
 }
