@@ -55,12 +55,14 @@ public class CapturaController {
     }
 
     @DeleteMapping(path = "/deletar/{id}")
+    @Transactional
     public ResponseEntity deletaCapturaPorId(@PathVariable Long id){
         capturaService.deletaCapturaPorId(id);
         return ResponseEntity.noContent().build();
     }
 
     @PutMapping(path = "/atualizar/{id}")
+    @Transactional
     public ResponseEntity atualizaCapturaPorId(@PathVariable Long id, @RequestBody DadosAtualizacaoCapturaDTO dados){
         return null;
     }
