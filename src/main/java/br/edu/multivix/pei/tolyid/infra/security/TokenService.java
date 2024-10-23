@@ -22,14 +22,14 @@ public class TokenService {
 
     private static final String ISSUER = "API TolyId";
 
-    public String gerarToken(Usuario usuario) {
+    public String geraToken(Usuario usuario) {
         try {
             var algoritmo = Algorithm.HMAC256(secret);
             return JWT.create()
                     .withIssuer(ISSUER)
                     .withSubject(usuario.getUsername())
                     .withClaim("id", usuario.getId())
-                    .withExpiresAt(dataExpiracao())
+                    .withExpiresAt(getDataExpiracao())
                     .sign(algoritmo);
         } catch (JWTCreationException exception){
             throw new RuntimeException("Erro ao gerar token jwt", exception);
@@ -49,7 +49,7 @@ public class TokenService {
         }
     }
 
-    private Instant dataExpiracao() {
+    private Instant getDataExpiracao() {
         return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
     }
 }

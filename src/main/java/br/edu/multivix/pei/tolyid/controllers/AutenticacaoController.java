@@ -28,10 +28,10 @@ public class AutenticacaoController {
     @SuppressWarnings("rawtypes")
     @PostMapping(path = "/token")
     @Transactional
-    public ResponseEntity efetuarLogin(@RequestBody @Valid DadosAutenticacaoDTO dados){
+    public ResponseEntity efetuaLogin(@RequestBody @Valid DadosAutenticacaoDTO dados){
         var authenticationToken = new UsernamePasswordAuthenticationToken(dados.email(), dados.senha());
         var authentication = manager.authenticate(authenticationToken);
-        var tokenJWT = tokenService.gerarToken((Usuario) authentication.getPrincipal());
+        var tokenJWT = tokenService.geraToken((Usuario) authentication.getPrincipal());
 
         return ResponseEntity.ok(new DadosTokenJWT(tokenJWT));
     }
