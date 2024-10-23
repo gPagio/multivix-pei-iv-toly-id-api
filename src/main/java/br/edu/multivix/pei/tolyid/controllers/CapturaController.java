@@ -60,7 +60,7 @@ public class CapturaController {
     }
 
     @PostMapping(path = "/atualizar/{id}")
-    public ResponseEntity atualizaCapturaPorId(@PathVariable Long id, @RequestBody @Valid DadosAtualizacaoCapturaDTO dados){
+    public ResponseEntity atualizaCapturaPorId(@PathVariable Long id, @RequestBody DadosAtualizacaoCapturaDTO dados){
         return null;
     }
 
