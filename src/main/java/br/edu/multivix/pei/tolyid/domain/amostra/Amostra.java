@@ -1,5 +1,6 @@
 package br.edu.multivix.pei.tolyid.domain.amostra;
 
+import br.edu.multivix.pei.tolyid.domain.amostra.dto.DadosAtualizacaoAmostraDTO;
 import br.edu.multivix.pei.tolyid.domain.amostra.dto.DadosCadastroAmostraDTO;
 import br.edu.multivix.pei.tolyid.domain.captura.Captura;
 import jakarta.persistence.Entity;
@@ -43,6 +44,16 @@ public class Amostra {
         this.ectoparasitos = amostraDTO.ectoparasitos();
         this.swab = amostraDTO.swab();
         this.local = amostraDTO.local();
-        this.outros = amostraDTO.outros().trim(); 
+        this.outros = amostraDTO.outros().trim();
+    }
+
+    public void atualizaInformacoes(DadosAtualizacaoAmostraDTO amostraDTO) {
+        if (amostraDTO.sangue() != null) this.sangue = amostraDTO.sangue();
+        if (amostraDTO.fezes() != null) this.fezes = amostraDTO.fezes();
+        if (amostraDTO.pelo() != null) this.pelo = amostraDTO.pelo();
+        if (amostraDTO.ectoparasitos() != null) this.ectoparasitos = amostraDTO.ectoparasitos();
+        if (amostraDTO.swab() != null) this.swab = amostraDTO.swab();
+        if (amostraDTO.local() != null) this.local = amostraDTO.local();
+        if (amostraDTO.outros() != null) this.outros = amostraDTO.outros().trim();
     }
 }

@@ -2,6 +2,7 @@ package br.edu.multivix.pei.tolyid.domain.captura;
 
 import br.edu.multivix.pei.tolyid.domain.amostra.Amostra;
 import br.edu.multivix.pei.tolyid.domain.biometria.Biometria;
+import br.edu.multivix.pei.tolyid.domain.captura.dto.DadosAtualizacaoCapturaDTO;
 import br.edu.multivix.pei.tolyid.domain.captura.dto.DadosCadastroCapturaDTO;
 import br.edu.multivix.pei.tolyid.domain.dadosgerais.DadosGerais;
 import br.edu.multivix.pei.tolyid.domain.fichaanestesica.FichaAnestesica;
@@ -66,5 +67,23 @@ public class Captura {
         this.fichaAnestesica = new FichaAnestesica(dados.fichaAnestesica());
         this.biometria = new Biometria(dados.biometria());
         this.amostra = new Amostra(dados.amostra());
+    }
+
+    public void atualizaInformacoes(DadosAtualizacaoCapturaDTO dados) {
+        if (dados.dadosGerais() != null){
+            this.dadosGerais.atualizaInformacoes(dados.dadosGerais());
+        }
+
+        if (dados.fichaAnestesica() != null){
+            this.fichaAnestesica.atualizaInformacoes(dados.fichaAnestesica());
+        }
+
+        if (dados.biometria() != null){
+            this.biometria.atualizaInformacoes(dados.biometria());
+        }
+
+        if (dados.amostra() != null){
+            this.amostra.atualizaInformacoes(dados.amostra());
+        }
     }
 }

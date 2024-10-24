@@ -1,5 +1,6 @@
 package br.edu.multivix.pei.tolyid.domain.biometria;
 
+import br.edu.multivix.pei.tolyid.domain.biometria.dto.DadosAtualizacaoBiometriaDTO;
 import br.edu.multivix.pei.tolyid.domain.biometria.dto.DadosCadastroBiometriaDTO;
 import br.edu.multivix.pei.tolyid.domain.captura.Captura;
 import jakarta.persistence.Entity;
@@ -78,5 +79,32 @@ public class Biometria {
         this.comprimentoDoPenis = biometriaDTO.comprimentoDoPenis();
         this.larguraBasePenis = biometriaDTO.larguraBasePenis();
         this.comprimentoDoClitoris = biometriaDTO.comprimentoDoClitoris();
+    }
+
+    public void atualizaInformacoes(DadosAtualizacaoBiometriaDTO biometriaDTO) {
+        if (biometriaDTO.comprimentoTotal() != null) this.comprimentoTotal = biometriaDTO.comprimentoTotal();
+        if (biometriaDTO.comprimentoDaCabeca() != null) this.comprimentoDaCabeca = biometriaDTO.comprimentoDaCabeca();
+        if (biometriaDTO.larguraDaCabeca() != null) this.larguraDaCabeca = biometriaDTO.larguraDaCabeca();
+        if (biometriaDTO.padraoEscudoCefalico() != null) this.padraoEscudoCefalico = biometriaDTO.padraoEscudoCefalico().trim();
+        if (biometriaDTO.comprimentoEscudoCefalico() != null) this.comprimentoEscudoCefalico = biometriaDTO.comprimentoEscudoCefalico();
+        if (biometriaDTO.larguraEscudoCefalico() != null) this.larguraEscudoCefalico = biometriaDTO.larguraEscudoCefalico();
+        if (biometriaDTO.larguraInterOrbital() != null) this.larguraInterOrbital = biometriaDTO.larguraInterOrbital();
+        if (biometriaDTO.larguraInterLacrimal() != null) this.larguraInterLacrimal = biometriaDTO.larguraInterLacrimal();
+        if (biometriaDTO.comprimentoDaOrelha() != null) this.comprimentoDaOrelha = biometriaDTO.comprimentoDaOrelha();
+        if (biometriaDTO.comprimentoDaCauda() != null) this.comprimentoDaCauda = biometriaDTO.comprimentoDaCauda();
+        if (biometriaDTO.larguraDaCauda() != null) this.larguraDaCauda = biometriaDTO.larguraDaCauda();
+        if (biometriaDTO.comprimentoEscudoEscapular() != null) this.comprimentoEscudoEscapular = biometriaDTO.comprimentoEscudoEscapular();
+        if (biometriaDTO.semicircunferenciaEscudoEscapular() != null) this.semicircunferenciaEscudoEscapular = biometriaDTO.semicircunferenciaEscudoEscapular();
+        if (biometriaDTO.comprimentoEscudoPelvico() != null) this.comprimentoEscudoPelvico = biometriaDTO.comprimentoEscudoPelvico();
+        if (biometriaDTO.semicircunferenciaEscudoPelvico() != null) this.semicircunferenciaEscudoPelvico = biometriaDTO.semicircunferenciaEscudoPelvico();
+        if (biometriaDTO.larguraNaSegundaCinta() != null) this.larguraNaSegundaCinta = biometriaDTO.larguraNaSegundaCinta();
+        if (biometriaDTO.numeroDeCintas() != null) this.numeroDeCintas = biometriaDTO.numeroDeCintas();
+        if (biometriaDTO.comprimentoMaoSemUnha() != null) this.comprimentoMaoSemUnha = biometriaDTO.comprimentoMaoSemUnha();
+        if (biometriaDTO.comprimentoUnhaDaMao() != null) this.comprimentoUnhaDaMao = biometriaDTO.comprimentoUnhaDaMao();
+        if (biometriaDTO.comprimentoPeSemUnha() != null) this.comprimentoPeSemUnha = biometriaDTO.comprimentoPeSemUnha();
+        if (biometriaDTO.comprimentoUnhaDoPe() != null) this.comprimentoUnhaDoPe = biometriaDTO.comprimentoUnhaDoPe();
+        if (biometriaDTO.comprimentoDoPenis() != null) this.comprimentoDoPenis = biometriaDTO.comprimentoDoPenis();
+        if (biometriaDTO.larguraBasePenis() != null) this.larguraBasePenis = biometriaDTO.larguraBasePenis();
+        if (biometriaDTO.comprimentoDoClitoris() != null) this.comprimentoDoClitoris = biometriaDTO.comprimentoDoClitoris();
     }
 }

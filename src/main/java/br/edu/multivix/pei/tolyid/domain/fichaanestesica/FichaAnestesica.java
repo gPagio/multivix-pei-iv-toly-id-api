@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import br.edu.multivix.pei.tolyid.domain.captura.Captura;
+import br.edu.multivix.pei.tolyid.domain.fichaanestesica.dto.DadosAtualizacaoFichaAnestesicaDTO;
 import br.edu.multivix.pei.tolyid.domain.fichaanestesica.dto.DadosCadastroFichaAnestesicaDTO;
 import br.edu.multivix.pei.tolyid.domain.parametrofisiologico.ParametroFisiologico;
 import br.edu.multivix.pei.tolyid.domain.parametrofisiologico.dto.DadosCadastroParametroFisiologicoDTO;
@@ -62,5 +63,20 @@ public class FichaAnestesica {
 
     private List<ParametroFisiologico> listDTOCadastroToListParamFisio(List<DadosCadastroParametroFisiologicoDTO> list){
         return list.stream().map(p -> new ParametroFisiologico(p)).collect(Collectors.toList());
+    }
+
+    public void atualizaInformacoes(DadosAtualizacaoFichaAnestesicaDTO fichaAnestesicaDTO) {
+        if (fichaAnestesicaDTO.tipoAnestesicoOuDose() != null) this.tipoAnestesicoOuDose = fichaAnestesicaDTO.tipoAnestesicoOuDose().trim();
+        if (fichaAnestesicaDTO.viaDeAdministracao() != null) this.viaDeAdministracao = fichaAnestesicaDTO.viaDeAdministracao().trim();
+        if (fichaAnestesicaDTO.aplicacao() != null) this.aplicacao = fichaAnestesicaDTO.aplicacao();
+        if (fichaAnestesicaDTO.inducao() != null) this.inducao = fichaAnestesicaDTO.inducao();
+        if (fichaAnestesicaDTO.retorno() != null) this.retorno = fichaAnestesicaDTO.retorno();
+        /*if (fichaAnestesicaDTO.parametrosFisiologicos() != null) this.parametrosFisiologicos.stream()
+                                                                                            .sorted(Comparator.comparing(ParametroFisiologico::getId))
+                                                                                            .forEach(p -> {
+                                                                                                for (int i = 0; i < fichaAnestesicaDTO.parametrosFisiologicos().size(); i++) {
+                                                                                                    p.atualizaInformacoes(fichaAnestesicaDTO.parametrosFisiologicos().get(i));
+                                                                                                }
+                                                                                            });*/
     }
 }

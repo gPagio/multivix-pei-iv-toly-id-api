@@ -1,6 +1,7 @@
 package br.edu.multivix.pei.tolyid.domain.parametrofisiologico;
 
 import br.edu.multivix.pei.tolyid.domain.fichaanestesica.FichaAnestesica;
+import br.edu.multivix.pei.tolyid.domain.parametrofisiologico.dto.DadosAtualizacaoParametroFisiologicoDTO;
 import br.edu.multivix.pei.tolyid.domain.parametrofisiologico.dto.DadosCadastroParametroFisiologicoDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -44,5 +45,12 @@ public class ParametroFisiologico {
 
     public void setFichaAnestesica(FichaAnestesica fichaAnestesica) {
         this.fichaAnestesica = fichaAnestesica;
+    }
+
+    public void atualizaInformacoes(DadosAtualizacaoParametroFisiologicoDTO parametroFisiologicoDTO) {
+        if (parametroFisiologicoDTO.frequenciaCardiaca() != null) this.frequenciaCardiaca = parametroFisiologicoDTO.frequenciaCardiaca();
+        if (parametroFisiologicoDTO.frequenciaRespiratoria() != null) this.frequenciaRespiratoria = parametroFisiologicoDTO.frequenciaRespiratoria();
+        if (parametroFisiologicoDTO.oximetria() != null) this.oximetria = parametroFisiologicoDTO.oximetria();
+        if (parametroFisiologicoDTO.temperatura() != null) this.temperatura = parametroFisiologicoDTO.temperatura();
     }
 }

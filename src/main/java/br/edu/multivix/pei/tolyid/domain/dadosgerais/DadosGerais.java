@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 import br.edu.multivix.pei.tolyid.domain.captura.Captura;
+import br.edu.multivix.pei.tolyid.domain.dadosgerais.dto.DadosAtualizacaoDadosGeraisDTO;
 import br.edu.multivix.pei.tolyid.domain.dadosgerais.dto.DadosCadastroDadosGeraisDTO;
 
 @AllArgsConstructor
@@ -46,7 +47,17 @@ public class DadosGerais {
         this.pesoDoTatu = dadosGeraisDTO.pesoDoTatu();
         this.dataCaptura = dadosGeraisDTO.dataCaptura();
         this.contatoDoResponsavel = dadosGeraisDTO.contatoDoResponsavel().trim();
-        this.observacoes = dadosGeraisDTO.observacoes();
+        this.observacoes = dadosGeraisDTO.observacoes().trim();
+    }
+
+    public void atualizaInformacoes(DadosAtualizacaoDadosGeraisDTO dadosGeraisDTO) {
+        if (dadosGeraisDTO.localDeCaptura() != null) this.localDeCaptura = dadosGeraisDTO.localDeCaptura().trim();
+        if (dadosGeraisDTO.equipeResponsavel() != null) this.equipeResponsavel = dadosGeraisDTO.equipeResponsavel().trim();
+        if (dadosGeraisDTO.instituicao() != null) this.instituicao = dadosGeraisDTO.instituicao().trim();
+        if (dadosGeraisDTO.pesoDoTatu() != null) this.pesoDoTatu = dadosGeraisDTO.pesoDoTatu();
+        if (dadosGeraisDTO.dataCaptura() != null) this.dataCaptura = dadosGeraisDTO.dataCaptura();
+        if (dadosGeraisDTO.contatoDoResponsavel() != null) this.contatoDoResponsavel = dadosGeraisDTO.contatoDoResponsavel().trim();
+        if (dadosGeraisDTO.observacoes() != null) this.observacoes = dadosGeraisDTO.observacoes().trim();
     }
 
 }
