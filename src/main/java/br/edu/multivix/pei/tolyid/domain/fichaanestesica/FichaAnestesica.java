@@ -71,12 +71,14 @@ public class FichaAnestesica {
         if (fichaAnestesicaDTO.aplicacao() != null) this.aplicacao = fichaAnestesicaDTO.aplicacao();
         if (fichaAnestesicaDTO.inducao() != null) this.inducao = fichaAnestesicaDTO.inducao();
         if (fichaAnestesicaDTO.retorno() != null) this.retorno = fichaAnestesicaDTO.retorno();
-        /*if (fichaAnestesicaDTO.parametrosFisiologicos() != null) this.parametrosFisiologicos.stream()
-                                                                                            .sorted(Comparator.comparing(ParametroFisiologico::getId))
-                                                                                            .forEach(p -> {
-                                                                                                for (int i = 0; i < fichaAnestesicaDTO.parametrosFisiologicos().size(); i++) {
-                                                                                                    p.atualizaInformacoes(fichaAnestesicaDTO.parametrosFisiologicos().get(i));
-                                                                                                }
-                                                                                            });*/
+        if (fichaAnestesicaDTO.parametrosFisiologicos() != null) {
+            fichaAnestesicaDTO.parametrosFisiologicos().stream().forEach(pDTO -> {
+                List<ParametroFisiologico> parametrosFiltrados = this.parametrosFisiologicos.stream()
+                                                                                            .filter(p -> p.getId().equals(pDTO.id()))
+                                                                                            .collect(Collectors.toList());
+                
+                if (parametrosFiltrados.size() > 0) parametrosFiltrados.get(0).atualizaInformacoes(pDTO);
+            });
+        }
     }
 }

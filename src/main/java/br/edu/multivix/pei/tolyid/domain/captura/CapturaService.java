@@ -48,24 +48,7 @@ public class CapturaService {
     public DadosListagemCapturaDTO atualizaCapturaPorId(Long id, DadosAtualizacaoCapturaDTO dados) {
         if (!capturaRepository.existsById(id)) throw new TolyIdGenericException("Não existe nenhuma captura com o id informado!");
 
-        Integer quantidadeParametrosFisiologicosCapturaNova = 0;
-        if (dados.fichaAnestesica() != null){
-            if (dados.fichaAnestesica().parametrosFisiologicos() != null){
-                quantidadeParametrosFisiologicosCapturaNova = dados.fichaAnestesica().parametrosFisiologicos().size();
-            }
-        }
-
-        var captura = capturaRepository.findById(id).get();
-
-        Integer quantidadeParametrosFisiologicosCapturaAntiga = 0;
-        if (captura.getFichaAnestesica().getParametrosFisiologicos() != null){
-            quantidadeParametrosFisiologicosCapturaAntiga = captura.getFichaAnestesica().getParametrosFisiologicos().size();
-        }
-
-        if (quantidadeParametrosFisiologicosCapturaNova != 0 && (quantidadeParametrosFisiologicosCapturaNova != quantidadeParametrosFisiologicosCapturaAntiga)){
-            throw new TolyIdGenericException("A quantidade de parâmetros fisiológicos não pode mudar em relação a captura original!");
-        }
-
+        var captura = capturaRepository.getReferenceById(id);
         captura.atualizaInformacoes(dados);
 
         return new DadosListagemCapturaDTO(captura);
