@@ -4,6 +4,7 @@ import br.edu.multivix.pei.tolyid.domain.usuario.Usuario;
 import br.edu.multivix.pei.tolyid.domain.usuario.autenticacao.dto.DadosAutenticacaoDTO;
 import br.edu.multivix.pei.tolyid.infra.security.DadosTokenJWT;
 import br.edu.multivix.pei.tolyid.infra.security.TokenService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/login")
+@Tag(name = "Autenticação", description = "Controlador usado para gerar o token de autenticação. Não exige autenticação.")
 public class AutenticacaoController {
 
     @Autowired

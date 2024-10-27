@@ -21,7 +21,7 @@ public class SpringDocConfigurations {
                                 new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("bearer").bearerFormat("JWT")))
                 .info(new Info()
                         .title("Toly Id API")
-                        .description("API Rest da aplicação Toly Id, contendo as funcionalidades necessárias para a sincronização de capturas e manipulação dos dados gerados!")
+                        .description("API Rest do projeto Toly Id, contendo as funcionalidades necessárias para a sincronização de capturas e manipulação dos dados gerados!")
                         .contact(new Contact()
                                 .name("Guilherme Pagio - Desenvolvedor da API")
                                 .email("guilhermepagio.contato@gmail.com"))
