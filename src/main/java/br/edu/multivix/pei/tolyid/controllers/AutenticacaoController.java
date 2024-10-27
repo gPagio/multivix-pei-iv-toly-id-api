@@ -4,6 +4,7 @@ import br.edu.multivix.pei.tolyid.domain.usuario.Usuario;
 import br.edu.multivix.pei.tolyid.domain.usuario.autenticacao.dto.DadosAutenticacaoDTO;
 import br.edu.multivix.pei.tolyid.infra.security.DadosTokenJWT;
 import br.edu.multivix.pei.tolyid.infra.security.TokenService;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,10 +31,11 @@ public class AutenticacaoController {
     @SuppressWarnings("rawtypes")
     @PostMapping(path = "/token")
     @Transactional
-    public ResponseEntity efetuaLogin(@RequestBody @Valid DadosAutenticacaoDTO dados){
+    @Operation(summary = "Gera Token", description = "Lista por meio de paginação todas as capturas cadastradas no banco de dados.")
+    public ResponseEntity geraTokenJWT(@RequestBody @Valid DadosAutenticacaoDTO dados){
         var authenticationToken = new UsernamePasswordAuthenticationToken(dados.email(), dados.senha());
         var authentication = manager.authenticate(authenticationToken);
-        var tokenJWT = tokenService.geraToken((Usuario) authentication.getPrincipal());
+        var tokenJWT = tokenService.geraTokenJWT((Usuario) authentication.getPrincipal());
 
         return ResponseEntity.ok(new DadosTokenJWT(tokenJWT));
     }

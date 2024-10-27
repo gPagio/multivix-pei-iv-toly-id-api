@@ -22,7 +22,7 @@ public class TokenService {
 
     private static final String ISSUER = "API TolyId";
 
-    public String geraToken(Usuario usuario) {
+    public String geraTokenJWT(Usuario usuario) {
         try {
             var algoritmo = Algorithm.HMAC256(secret);
             return JWT.create()
