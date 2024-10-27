@@ -4,8 +4,10 @@ import br.edu.multivix.pei.tolyid.domain.amostra.dto.DadosCadastroAmostraDTO;
 import br.edu.multivix.pei.tolyid.domain.biometria.dto.DadosCadastroBiometriaDTO;
 import br.edu.multivix.pei.tolyid.domain.dadosgerais.dto.DadosCadastroDadosGeraisDTO;
 import br.edu.multivix.pei.tolyid.domain.fichaanestesica.dto.DadosCadastroFichaAnestesicaDTO;
+import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.validation.constraints.NotNull;
 
+@Hidden
 public record DadosCadastroCapturaDTO(  @NotNull(message = "É obrigatório o preenchimento dos dados gerais para o cadastro de uma captura!")
                                         DadosCadastroDadosGeraisDTO dadosGerais,
 
