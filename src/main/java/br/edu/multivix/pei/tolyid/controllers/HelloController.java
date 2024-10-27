@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
@@ -12,6 +13,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 public class HelloController {
 
     @GetMapping
+    @Operation(summary = "Mostra Mensagem Secreta", description = "Mostra uma mensagem secreta a fim de validar se a API está online.")
     public String sayHello(){
         return "Oi meu chapa!";
     }

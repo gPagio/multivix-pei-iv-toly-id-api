@@ -31,7 +31,7 @@ public class AutenticacaoController {
     @SuppressWarnings("rawtypes")
     @PostMapping(path = "/token")
     @Transactional
-    @Operation(summary = "Gera Token", description = "Lista por meio de paginação todas as capturas cadastradas no banco de dados.")
+    @Operation(summary = "Gera Token JWT", description = "Gera um Token JWT com email e senha informados.")
     public ResponseEntity geraTokenJWT(@RequestBody @Valid DadosAutenticacaoDTO dados){
         var authenticationToken = new UsernamePasswordAuthenticationToken(dados.email(), dados.senha());
         var authentication = manager.authenticate(authenticationToken);
