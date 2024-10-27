@@ -1,7 +1,5 @@
 package br.edu.multivix.pei.tolyid.domain.tatu;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,10 +26,10 @@ public class TatuService {
     }
 
     public DadosListagemTatuDTO listaTatuPorIdentificacaoAnimal(String identificacaoAnimal) {
-        Optional<Tatu> tatu = tatuRepository.findByIdentificacaoAnimal(identificacaoAnimal);
-        if (tatu.isEmpty()) throw new TolyIdGenericException("Não existe nenhum tatu cadastrado com a identificação do animal informada!");
+        var tatu = tatuRepository.getReferenceByIdentificacaoAnimal(identificacaoAnimal);
+        if (!tatuRepository.existsByIdentificacaoAnimal(identificacaoAnimal)) throw new TolyIdGenericException("Não existe nenhum tatu cadastrado com a identificação do animal informada!");
 
-        return new DadosListagemTatuDTO(tatu.get());
+        return new DadosListagemTatuDTO(tatu);
     }
 
 }

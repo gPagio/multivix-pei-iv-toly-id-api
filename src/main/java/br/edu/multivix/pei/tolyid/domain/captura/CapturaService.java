@@ -27,8 +27,8 @@ public class CapturaService {
         if (!tatuRepository.existsById(idTatu)) throw new TolyIdGenericException("Nenhum tatu encontrado com o id informado!");
 
         var usuarioLogado = AutenticacaoService.getUsuarioLogado();
-        var usuario = usuarioRepository.findById(usuarioLogado.getId()).get();
-        var tatu = tatuRepository.findById(idTatu).get();
+        var usuario = usuarioRepository.getReferenceById(usuarioLogado.getId());
+        var tatu = tatuRepository.getReferenceById(idTatu);
         var captura = new Captura(usuario, tatu, dados);
         capturaRepository.save(captura);
         return new DadosListagemCapturaDTO(captura);
@@ -36,7 +36,7 @@ public class CapturaService {
 
     public DadosListagemCapturaDTO listaCapturaPorId(Long id) {
         if (!capturaRepository.existsById(id)) throw new TolyIdGenericException("Não existe nenhuma captura com o id informado!");
-        var captura = capturaRepository.findById(id).get();
+        var captura = capturaRepository.getReferenceById(id);
         return new DadosListagemCapturaDTO(captura);
     }
 

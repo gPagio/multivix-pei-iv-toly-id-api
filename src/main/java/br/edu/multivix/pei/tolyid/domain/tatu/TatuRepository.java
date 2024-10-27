@@ -1,7 +1,5 @@
 package br.edu.multivix.pei.tolyid.domain.tatu;
 
-import java.util.Optional;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TatuRepository extends JpaRepository<Tatu, Long>{
@@ -9,5 +7,5 @@ public interface TatuRepository extends JpaRepository<Tatu, Long>{
 
     Boolean existsByNumeroMicrochip(Integer numeroMicrochip);
 
-    Optional<Tatu> findByIdentificacaoAnimal(String identificacaoAnimal);
+    Tatu getReferenceByIdentificacaoAnimal(String identificacaoAnimal);
 }
