@@ -16,7 +16,7 @@ public class TatuService {
     public DadosListagemTatuDTO cadastraTatu (DadosCadastroTatuDTO dados){
         if(tatuRepository.existsByIdentificacaoAnimal(dados.identificacaoAnimal().trim())) throw new TolyIdGenericException("Já existe um animal cadastrado com o identificador informado!");
 
-        if(!dados.numeroMicrochip().equals(null)){
+        if(dados.numeroMicrochip() != null){
             if (tatuRepository.existsByNumeroMicrochip(dados.numeroMicrochip())) throw new TolyIdGenericException("Já existe um animal cadastrado com o número de microchip informado!");
         }
 
