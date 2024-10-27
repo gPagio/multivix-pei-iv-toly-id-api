@@ -63,7 +63,7 @@ public class CapturaController {
 
     @PatchMapping(path = "/atualizar/{id}")
     @Transactional
-    public ResponseEntity atualizaCapturaPorId(@PathVariable Long id, @RequestBody DadosAtualizacaoCapturaDTO dados){
+    public ResponseEntity atualizaCapturaPorId(@PathVariable Long id, @RequestBody @Valid DadosAtualizacaoCapturaDTO dados){
         var dadosListagemCapturaDTO = capturaService.atualizaCapturaPorId(id, dados);
         return ResponseEntity.ok(dadosListagemCapturaDTO);
     }
