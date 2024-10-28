@@ -65,11 +65,8 @@ public record DadosCadastroBiometriaDTO(@NotNull(message = "O comprimento total 
                                         @NotNull(message = "O comprimento da unha do pé deve ser informado para completar os parâmetros fisiológicos de uma ficha anestésica!")
                                         Double comprimentoUnhaDoPe,
                                         
-                                        @NotNull(message = "O comprimento do pênis deve ser informado para completar os parâmetros fisiológicos de uma ficha anestésica!")
                                         Double comprimentoDoPenis,
                                         
-                                        @NotNull(message = "A largura da base do pênis deve ser informada para completar os parâmetros fisiológicos de uma ficha anestésica!")
                                         Double larguraBasePenis,
                                         
-                                        @NotNull(message = "O comprimento do clitóris deve ser informado para completar os parâmetros fisiológicos de uma ficha anestésica!")
                                         Double comprimentoDoClitoris) { }
