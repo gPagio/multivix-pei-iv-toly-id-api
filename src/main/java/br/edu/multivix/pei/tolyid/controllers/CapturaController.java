@@ -51,10 +51,10 @@ public class CapturaController {
         return ResponseEntity.created(uri).body(dadosListagemCapturaDTO);
     }
 
-    @GetMapping(path = "/listar/{id}")
+    @GetMapping(path = "/listar/{idCaptura}")
     @Operation(summary = "Lista Captura por Id", description = "Exibe uma captura pelo id.")
-    public ResponseEntity listaCapturaPorId(@PathVariable Long id){
-        var dadosListagemCapturaDTO = capturaService.listaCapturaPorId(id);
+    public ResponseEntity listaCapturaPorId(@PathVariable Long idCaptura){
+        var dadosListagemCapturaDTO = capturaService.listaCapturaPorId(idCaptura);
         return ResponseEntity.ok(dadosListagemCapturaDTO);
     }
 
@@ -68,19 +68,19 @@ public class CapturaController {
         return ResponseEntity.ok(page);
     }
 
-    @DeleteMapping(path = "/deletar/{id}")
+    @DeleteMapping(path = "/deletar/{idCaptura}")
     @Transactional
     @Operation(summary = "Deleta Captura", description = "Deleta captura pelo id.")
-    public ResponseEntity deletaCapturaPorId(@PathVariable Long id){
-        capturaService.deletaCapturaPorId(id);
+    public ResponseEntity deletaCapturaPorId(@PathVariable Long idCaptura){
+        capturaService.deletaCapturaPorId(idCaptura);
         return ResponseEntity.noContent().build();
     }
 
-    @PatchMapping(path = "/atualizar/{id}")
+    @PatchMapping(path = "/atualizar/{idCaptura}")
     @Transactional
     @Operation(summary = "Atualiza Captura", description = "Atualiza os campos de uma captura. Permite que apenas os campos necessários sejam atualizados, basta informar apenas o necessário.")
-    public ResponseEntity atualizaCapturaPorId(@PathVariable Long id, @RequestBody @Valid DadosAtualizacaoCapturaDTO dados){
-        var dadosListagemCapturaDTO = capturaService.atualizaCapturaPorId(id, dados);
+    public ResponseEntity atualizaCapturaPorId(@PathVariable Long idCaptura, @RequestBody @Valid DadosAtualizacaoCapturaDTO dados){
+        var dadosListagemCapturaDTO = capturaService.atualizaCapturaPorId(idCaptura, dados);
         return ResponseEntity.ok(dadosListagemCapturaDTO);
     }
 
