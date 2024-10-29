@@ -1,4 +1,4 @@
-package br.edu.multivix.pei.tolyid.infra.security;
+package br.edu.multivix.pei.tolyid.infra.security.jwt;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

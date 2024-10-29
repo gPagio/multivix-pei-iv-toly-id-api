@@ -1,4 +1,4 @@
-package br.edu.multivix.pei.tolyid.infra.security;
+package br.edu.multivix.pei.tolyid.infra.security.jwt;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
