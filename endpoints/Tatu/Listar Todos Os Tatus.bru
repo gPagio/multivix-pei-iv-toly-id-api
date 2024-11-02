@@ -1,0 +1,15 @@
+meta {
+  name: Listar Todos Os Tatus
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{host}}/tatus/listar?sort=numeroMicrochip
+  body: none
+  auth: inherit
+}
+
+params:query {
+  sort: numeroMicrochip
+}

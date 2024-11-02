@@ -1,0 +1,18 @@
+meta {
+  name: Gerar Token JWT
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{host}}/login/token
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email":"guilherme@toly.com",
+    "senha":"123456"
+  }
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Atualizar Captura
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{host}}/capturas/atualizar/16
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "fichaAnestesica":{
+      "parametrosFisiologicos": [
+        {
+          "id": 5,
+          "frequenciaCardiaca": 121,
+          "frequenciaRespiratoria": 25,
+          "oximetria": 100,
+          "temperatura": 30.5
+        }
+      ]
+    }
+  }
+}

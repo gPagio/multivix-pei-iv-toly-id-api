@@ -1,0 +1,17 @@
+meta {
+  name: Cadastrar Tatu
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{host}}/tatus/cadastrar
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "identificacaoAnimal":"b"
+  }
+}

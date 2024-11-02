@@ -1,0 +1,100 @@
+meta {
+  name: Cadastrar Captura
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{host}}/capturas/cadastrar/1
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "dadosGerais": {
+      "localDeCaptura": "Bahia",
+      "equipeResponsavel": "Equipe de Biologia",
+      "instituicao": "Universidade Multivix",
+      "pesoDoTatu": 7.5,
+      "dataCaptura": "2024-10-06T16:30:00",
+      "contatoDoResponsavel": "+55 28 999999-9999",
+      "observacoes": "Tatu encontrado próximo ao rio."
+    },
+    "fichaAnestesica": {
+      "tipoAnestesicoOuDose": "Xilazina 10mg",
+      "viaDeAdministracao": "Intramuscular",
+      "aplicacao": "10:45:00",
+      "inducao": "10:50:00",
+      "retorno": "11:30:00",
+      "parametrosFisiologicos": [
+        {
+          "frequenciaCardiaca": 120.0,
+          "frequenciaRespiratoria": 25.0,
+          "oximetria": 98.0,
+          "temperatura": 36.5
+        },
+        {
+          "frequenciaCardiaca": 119.0,
+          "frequenciaRespiratoria": 24.0,
+          "oximetria": 97.0,
+          "temperatura": 35.5
+        },
+        {
+          "frequenciaCardiaca": 118.0,
+          "frequenciaRespiratoria": 23.0,
+          "oximetria": 96.0,
+          "temperatura": 34.5
+        },
+        {
+          "frequenciaCardiaca": 121.0,
+          "frequenciaRespiratoria": 26.0,
+          "oximetria": 99.0,
+          "temperatura": 37.5
+        },
+        {
+          "frequenciaCardiaca": 121.0,
+          "frequenciaRespiratoria": 25.0,
+          "oximetria": 95.0,
+          "temperatura": 36.7
+        }
+      ]
+    },
+    "biometria": {
+      "comprimentoTotal": 45.0,
+      "comprimentoDaCabeca": 12.0,
+      "larguraDaCabeca": 8.0,
+      "padraoEscudoCefalico": "Regular",
+      "comprimentoEscudoCefalico": 14.0,
+      "larguraEscudoCefalico": 10.0,
+      "larguraInterOrbital": 5.0,
+      "larguraInterLacrimal": 4.5,
+      "comprimentoDaOrelha": 3.0,
+      "comprimentoDaCauda": 20.0,
+      "larguraDaCauda": 2.0,
+      "comprimentoEscudoEscapular": 8.0,
+      "semicircunferenciaEscudoEscapular": 12.0,
+      "comprimentoEscudoPelvico": 7.0,
+      "semicircunferenciaEscudoPelvico": 10.0,
+      "larguraNaSegundaCinta": 6.0,
+      "numeroDeCintas": 7,
+      "comprimentoMaoSemUnha": 4.0,
+      "comprimentoUnhaDaMao": 2.5,
+      "comprimentoPeSemUnha": 4.5,
+      "comprimentoUnhaDoPe": 2.2,
+      "comprimentoDoPenis": 3.5,
+      "larguraBasePenis": 1.5,
+      "comprimentoDoClitoris": 1.0
+    },
+    "amostra": {
+      "sangue": true,
+      "fezes": true,
+      "pelo": false,
+      "ectoparasitos": true,
+      "swab": false,
+      "local": true,
+      "outros": "Amostras de solo coletadas."
+    }
+  }
+  
+}
