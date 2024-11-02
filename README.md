@@ -11,11 +11,17 @@ Os pesquisadores irão utilizar um [`aplicativo`](https://github.com/gushadd/pei
 Vale a pena mencionar que essa API persiste os dados em um banco de dados `PostgreSQL` por meio da API do `Spring Boot` que se chama `Spring Data JPA`.
 
 ## 📝 End Points
+### 🟢 Swagger
 Os end points dessa API estão mapeados com o Swagger. Para acessar esse mapeamento, rode o projeto e entre em:
 
 ```
 http://localhost:8080/swagger-ui/index.html#/
 ```
+
+### 🐶 Bruno
+Além do Swagger, na pasta raiz do projeto existe uma pasta chamada endpoints, onde a mesma possui todos os endpoints usados para testar a API.
+
+Para fazer o uso desses arquivos intale o [`Bruno`](https://www.usebruno.com/) e importe a coleção de endpoints (pasta mencionada anteriormente) pelo botão `Open Collection`, o qual pode ser encontrado clicando em três pontinhos do lado esquerdo da tela.
 
 ## 📌 Dependências
 Para o correto funcionamento doToly ID API, é necessário realizar a instalação das dependências abaixo. Clique no hyperlink em cada uma delas para ir a respectiva página de downloads.
