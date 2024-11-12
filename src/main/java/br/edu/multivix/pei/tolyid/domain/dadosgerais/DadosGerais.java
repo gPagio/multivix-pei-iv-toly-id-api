@@ -47,7 +47,7 @@ public class DadosGerais {
         this.pesoDoTatu = dadosGeraisDTO.pesoDoTatu();
         this.dataCaptura = dadosGeraisDTO.dataCaptura();
         this.contatoDoResponsavel = dadosGeraisDTO.contatoDoResponsavel().trim();
-        this.observacoes = dadosGeraisDTO.observacoes().trim();
+        if (dadosGeraisDTO.observacoes() != null) this.observacoes = dadosGeraisDTO.observacoes().trim();
     }
 
     public void atualizaInformacoes(DadosAtualizacaoDadosGeraisDTO dadosGeraisDTO) {
