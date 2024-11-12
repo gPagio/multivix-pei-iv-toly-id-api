@@ -44,7 +44,7 @@ public class Amostra {
         this.ectoparasitos = amostraDTO.ectoparasitos();
         this.swab = amostraDTO.swab();
         this.local = amostraDTO.local();
-        this.outros = amostraDTO.outros().trim();
+        if (amostraDTO.outros() != null) this.outros = amostraDTO.outros().trim();
     }
 
     public void atualizaInformacoes(DadosAtualizacaoAmostraDTO amostraDTO) {
