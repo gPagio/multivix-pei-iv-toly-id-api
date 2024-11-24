@@ -15,17 +15,20 @@ public class ValidadorCadastroMedidasGenitaliasCadastradas implements ValidadorC
 
     @Override
     public void validar(Long idTatu, DadosCadastroCapturaDTO dados) {
-        var listaTodasCapturas = tatuRepository.getReferenceById(idTatu).getCapturas();
 
-        if (listaTodasCapturas.size() > 0) {
-            var larguraBasePenisCadastrada = listaTodasCapturas.get(0).getBiometria().getLarguraBasePenis();
-            var comprimentoDoPenisCadastrado = listaTodasCapturas.get(0).getBiometria().getComprimentoDoPenis();
-            if (((larguraBasePenisCadastrada != null) || (comprimentoDoPenisCadastrado != null)) && dados.biometria().comprimentoDoClitoris() != null){
+        var sexoTatu = tatuRepository.getReferenceById(idTatu).getSexo();
+
+        if ("M".equals(sexoTatu.toString())){
+            var comprimentoDoClitorisJson = dados.biometria().comprimentoDoClitoris();
+            if (comprimentoDoClitorisJson != null) {
                 throw new TolyIdGenericException("Este tatu é macho e não deve possuir comprimento do clitóris!");
             }
-
-            var comprimentoDoClitorisCadastrado = listaTodasCapturas.get(0).getBiometria().getComprimentoDoClitoris();
-            if (((dados.biometria().larguraBasePenis() != null) || (dados.biometria().comprimentoDoPenis() != null)) && comprimentoDoClitorisCadastrado != null){
+        }
+        
+        if ("F".equals(sexoTatu.toString())){
+            var larguraBasePenisJson = dados.biometria().larguraBasePenis();
+            var comprimentoDoPenisJson = dados.biometria().comprimentoDoPenis();
+            if (larguraBasePenisJson != null || comprimentoDoPenisJson != null) {
                 throw new TolyIdGenericException("Este tatu é fêmea e não deve possuir comprimento ou largura da base do pênis!");
             }
         }
