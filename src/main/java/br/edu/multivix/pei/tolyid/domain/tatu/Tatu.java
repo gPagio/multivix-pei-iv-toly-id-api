@@ -31,6 +31,7 @@ public class Tatu {
 
     private String identificacaoAnimal;
     private Integer numeroMicrochip;
+    private Character sexo;
 
     @OneToMany(mappedBy = "tatu", fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST , CascadeType.REFRESH})
     private List<Captura> capturas;
@@ -38,5 +39,6 @@ public class Tatu {
     public Tatu (DadosCadastroTatuDTO dados){
         this.identificacaoAnimal = dados.identificacaoAnimal().trim();
         this.numeroMicrochip = dados.numeroMicrochip();
+        this.sexo = dados.sexo();
     }
 }
