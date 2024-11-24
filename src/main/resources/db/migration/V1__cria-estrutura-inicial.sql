@@ -1,3 +1,12 @@
+DROP TABLE IF EXISTS parametros_fisiologicos;
+DROP TABLE IF EXISTS capturas;
+DROP TABLE IF EXISTS tatus;
+DROP TABLE IF EXISTS usuarios;
+DROP TABLE IF EXISTS fichas_anestesicas;
+DROP TABLE IF EXISTS dados_gerais;
+DROP TABLE IF EXISTS biometrias;
+DROP TABLE IF EXISTS amostras;
+
 CREATE TABLE amostras (
 	id bigserial,
 	ectoparasitos boolean NULL,
