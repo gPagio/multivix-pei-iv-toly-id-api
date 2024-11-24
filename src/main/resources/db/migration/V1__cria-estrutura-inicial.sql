@@ -74,7 +74,7 @@ CREATE TABLE tatus (
 	id bigserial,
 	identificacao_animal varchar(255) NULL,
 	numero_microchip int4 NULL,
-	sexo char(1),
+	sexo char(1) CHECK (sexo IN ('M', 'F')),
 	CONSTRAINT pk_tatus PRIMARY KEY (id)
 );
 
