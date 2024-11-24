@@ -44,7 +44,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity tratarErroDataIntegrityViolation(DataIntegrityViolationException ex) {
-        return ResponseEntity.badRequest().body("Dados fornecidos não aceitos pelo banco: " + ex.getMessage());
+        return ResponseEntity.badRequest().body("Integridade de dados violada: " + ex.getMessage());
     }
 
     @ExceptionHandler(BadCredentialsException.class)
