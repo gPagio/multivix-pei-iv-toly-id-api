@@ -88,6 +88,14 @@ CREATE TABLE usuarios (
 	CONSTRAINT pk_usuarios PRIMARY KEY (id)
 );
 
+CREATE TABLE acessos (
+	id bigserial,
+	usuario_id bigint,
+	authority varchar(50),
+	CONSTRAINT pk_acessos PRIMARY KEY (id),
+    CONSTRAINT fk_acessos_usuario_id FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
+
 CREATE TABLE capturas (
 	id bigserial,
 	amostra_id bigint NULL,
@@ -122,3 +130,6 @@ CREATE TABLE parametros_fisiologicos (
 
 INSERT INTO usuarios (id, ativo, email             , nome     , senha                                                         )
 	 		  VALUES (1 , true , 'usuario@toly.com', 'Usuario', '$2a$12$7.ZKqbEjFT3vGRc/47xd5.etGVMMbtGp4KLSy6Uo1Qb6KJmCHoJIa');
+
+INSERT INTO acessos (id, usuario_id, authority)
+			 VALUES ( 1,          1, 'ADMIN'  );

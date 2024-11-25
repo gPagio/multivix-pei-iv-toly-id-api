@@ -14,6 +14,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import br.edu.multivix.pei.tolyid.domain.usuario.acesso.Authority;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfigurations {
@@ -29,6 +31,11 @@ public class SecurityConfigurations {
                     req.requestMatchers(HttpMethod.POST,"/login/**").permitAll();
                     req.requestMatchers(HttpMethod.OPTIONS).permitAll();
                     req.requestMatchers("/hello", "/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll();
+                    req.requestMatchers(HttpMethod.POST).hasAnyAuthority(Authority.CADASTRAR.toString());
+                    req.requestMatchers(HttpMethod.PUT).hasAnyAuthority(Authority.ATUALIZAR.toString());
+                    req.requestMatchers(HttpMethod.PATCH).hasAnyAuthority(Authority.ATUALIZAR.toString());
+                    req.requestMatchers(HttpMethod.GET).hasAnyAuthority(Authority.LISTAR.toString());
+                    req.requestMatchers(HttpMethod.DELETE).hasAnyAuthority(Authority.DELETAR.toString());
                     req.anyRequest().authenticated();
                 })
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)

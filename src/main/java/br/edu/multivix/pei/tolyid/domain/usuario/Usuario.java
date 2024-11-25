@@ -8,6 +8,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import br.edu.multivix.pei.tolyid.domain.captura.Captura;
+import br.edu.multivix.pei.tolyid.domain.usuario.acesso.Acesso;
+import br.edu.multivix.pei.tolyid.domain.usuario.acesso.Authority;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -39,12 +41,27 @@ public class Usuario implements UserDetails{
     private String telefone;
     private Boolean ativo;
 
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Acesso> acessos;
+
     @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST , CascadeType.REFRESH})
     private List<Captura> capturas;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+        var acessosUsuarioLogado = acessos.stream()
+                                            .map(acessos -> new SimpleGrantedAuthority(acessos.getAuthority().toString()))
+                                            .toList();
+
+        if (acessosUsuarioLogado.stream().anyMatch(authority -> authority.getAuthority().equals(Authority.ADMIN.toString()))){
+            return List.of(new SimpleGrantedAuthority(Authority.ADMIN.toString()),
+                           new SimpleGrantedAuthority(Authority.CADASTRAR.toString()),
+                           new SimpleGrantedAuthority(Authority.ATUALIZAR.toString()),
+                           new SimpleGrantedAuthority(Authority.LISTAR.toString()),
+                           new SimpleGrantedAuthority(Authority.DELETAR.toString()));
+        } else {
+            return acessosUsuarioLogado;
+        }
     }
 
     @Override

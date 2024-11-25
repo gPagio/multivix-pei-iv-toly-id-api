@@ -1,4 +1,4 @@
-package br.edu.multivix.pei.tolyid.domain.usuario.autenticacao.dto;
+package br.edu.multivix.pei.tolyid.infra.security.autenticacao.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;

@@ -1,4 +1,4 @@
-package br.edu.multivix.pei.tolyid.domain.usuario.autenticacao;
+package br.edu.multivix.pei.tolyid.infra.security.autenticacao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;

@@ -1,9 +1,9 @@
 package br.edu.multivix.pei.tolyid.controllers;
 
 import br.edu.multivix.pei.tolyid.domain.usuario.Usuario;
-import br.edu.multivix.pei.tolyid.domain.usuario.autenticacao.dto.DadosAutenticacaoDTO;
-import br.edu.multivix.pei.tolyid.infra.security.jwt.DadosTokenJWT;
+import br.edu.multivix.pei.tolyid.infra.security.autenticacao.dto.DadosAutenticacaoDTO;
 import br.edu.multivix.pei.tolyid.infra.security.jwt.TokenService;
+import br.edu.multivix.pei.tolyid.infra.security.jwt.dto.DadosTokenJWT;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;

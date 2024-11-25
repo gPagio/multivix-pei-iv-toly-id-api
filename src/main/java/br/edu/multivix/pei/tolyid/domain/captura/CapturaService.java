@@ -13,7 +13,7 @@ import br.edu.multivix.pei.tolyid.domain.captura.validacoes.atualizacao.Validado
 import br.edu.multivix.pei.tolyid.domain.captura.validacoes.cadastro.ValidadorCadastroCaptura;
 import br.edu.multivix.pei.tolyid.domain.tatu.TatuRepository;
 import br.edu.multivix.pei.tolyid.domain.usuario.UsuarioRepository;
-import br.edu.multivix.pei.tolyid.domain.usuario.autenticacao.AutenticacaoService;
+import br.edu.multivix.pei.tolyid.infra.security.autenticacao.AutenticacaoService;
 
 @Service
 public class CapturaService {
