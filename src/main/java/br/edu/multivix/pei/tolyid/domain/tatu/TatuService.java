@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import br.edu.multivix.pei.tolyid.domain.TolyIdGenericException;
 import br.edu.multivix.pei.tolyid.domain.tatu.dto.DadosCadastroTatuDTO;
 import br.edu.multivix.pei.tolyid.domain.tatu.dto.DadosListagemTatuDTO;
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class TatuService {
@@ -27,7 +28,7 @@ public class TatuService {
 
     public DadosListagemTatuDTO listaTatuPorIdentificacaoAnimal(String identificacaoAnimal) {
         var tatu = tatuRepository.getReferenceByIdentificacaoAnimal(identificacaoAnimal);
-        if (!tatuRepository.existsByIdentificacaoAnimal(identificacaoAnimal)) throw new TolyIdGenericException("Não existe nenhum tatu cadastrado com a identificação do animal informada!");
+        if (!tatuRepository.existsByIdentificacaoAnimal(identificacaoAnimal)) throw new EntityNotFoundException();
 
         return new DadosListagemTatuDTO(tatu);
     }

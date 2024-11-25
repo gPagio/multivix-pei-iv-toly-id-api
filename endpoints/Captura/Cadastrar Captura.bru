@@ -5,9 +5,13 @@ meta {
 }
 
 post {
-  url: {{host}}/capturas/cadastrar/3
+  url: {{host}}/capturas/cadastrar/:idTatu
   body: json
   auth: inherit
+}
+
+params:path {
+  idTatu: 3
 }
 
 body:json {

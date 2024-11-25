@@ -1,4 +1,4 @@
-package br.edu.multivix.pei.tolyid.domain.usuario.acesso;
+package br.edu.multivix.pei.tolyid.domain.acesso;
 
 public enum Authority {
     ADMIN,

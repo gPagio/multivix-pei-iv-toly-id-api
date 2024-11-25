@@ -1,4 +1,4 @@
-package br.edu.multivix.pei.tolyid.domain.usuario.acesso;
+package br.edu.multivix.pei.tolyid.domain.acesso;
 
 import br.edu.multivix.pei.tolyid.domain.usuario.Usuario;
 import jakarta.persistence.Entity;

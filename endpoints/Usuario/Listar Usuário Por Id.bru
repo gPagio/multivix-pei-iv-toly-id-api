@@ -1,0 +1,15 @@
+meta {
+  name: Listar Usuário Por Id
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{host}}/usuarios/listar/:idUsuario
+  body: none
+  auth: inherit
+}
+
+params:path {
+  idUsuario: 5
+}

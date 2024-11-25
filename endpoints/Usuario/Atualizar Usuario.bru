@@ -1,0 +1,21 @@
+meta {
+  name: Atualizar Usuario
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{host}}/usuarios/atualizar/:idUsuario
+  body: json
+  auth: inherit
+}
+
+params:path {
+  idUsuario: 3
+}
+
+body:json {
+  {
+    "authorities":["LISTAR", "LISTAR", "LISTAR"]
+  }
+}

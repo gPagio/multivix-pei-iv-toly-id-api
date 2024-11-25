@@ -2,7 +2,7 @@ package br.edu.multivix.pei.tolyid.domain.usuario.dto;
 
 import java.util.List;
 
-import br.edu.multivix.pei.tolyid.domain.usuario.acesso.Authority;
+import br.edu.multivix.pei.tolyid.domain.acesso.Authority;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 

@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.edu.multivix.pei.tolyid.domain.TolyIdGenericException;
 import br.edu.multivix.pei.tolyid.domain.captura.dto.DadosAtualizacaoCapturaDTO;
 import br.edu.multivix.pei.tolyid.domain.captura.dto.DadosCadastroCapturaDTO;
 import br.edu.multivix.pei.tolyid.domain.captura.dto.DadosListagemCapturaDTO;
@@ -14,6 +13,7 @@ import br.edu.multivix.pei.tolyid.domain.captura.validacoes.cadastro.ValidadorCa
 import br.edu.multivix.pei.tolyid.domain.tatu.TatuRepository;
 import br.edu.multivix.pei.tolyid.domain.usuario.UsuarioRepository;
 import br.edu.multivix.pei.tolyid.infra.security.autenticacao.AutenticacaoService;
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class CapturaService {
@@ -34,7 +34,7 @@ public class CapturaService {
     private List<ValidadorAtualizacaoCaptura> validadoresAtualizacao;
 
     public DadosListagemCapturaDTO cadastraCaptura(Long idTatu, DadosCadastroCapturaDTO dados) {
-        if (!tatuRepository.existsById(idTatu)) throw new TolyIdGenericException("Nenhum tatu encontrado com o id informado!");
+        if (!tatuRepository.existsById(idTatu)) throw new EntityNotFoundException();
 
         validadoresCadastro.forEach(validacao -> validacao.validar(idTatu, dados));
 
@@ -47,18 +47,18 @@ public class CapturaService {
     }
 
     public DadosListagemCapturaDTO listaCapturaPorId(Long idCaptura) {
-        if (!capturaRepository.existsById(idCaptura)) throw new TolyIdGenericException("Não existe nenhuma captura com o id informado!");
+        if (!capturaRepository.existsById(idCaptura)) throw new EntityNotFoundException();
         var captura = capturaRepository.getReferenceById(idCaptura);
         return new DadosListagemCapturaDTO(captura);
     }
 
     public void deletaCapturaPorId(Long idCaptura) {
-        if (!capturaRepository.existsById(idCaptura)) throw new TolyIdGenericException("Não existe nenhuma captura com o id informado!");
+        if (!capturaRepository.existsById(idCaptura)) throw new EntityNotFoundException();
         capturaRepository.deleteById(idCaptura);
     }
 
     public DadosListagemCapturaDTO atualizaCapturaPorId(Long idCaptura, DadosAtualizacaoCapturaDTO dados) {
-        if (!capturaRepository.existsById(idCaptura)) throw new TolyIdGenericException("Não existe nenhuma captura com o id informado!");
+        if (!capturaRepository.existsById(idCaptura)) throw new EntityNotFoundException();
 
         validadoresAtualizacao.forEach(validacao -> validacao.validar(idCaptura, dados));
 
