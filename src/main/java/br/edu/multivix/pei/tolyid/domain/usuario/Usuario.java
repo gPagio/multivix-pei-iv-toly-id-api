@@ -6,10 +6,13 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import br.edu.multivix.pei.tolyid.domain.captura.Captura;
 import br.edu.multivix.pei.tolyid.domain.usuario.acesso.Acesso;
 import br.edu.multivix.pei.tolyid.domain.usuario.acesso.Authority;
+import br.edu.multivix.pei.tolyid.domain.usuario.dto.DadosCadastroUsuarioDTO;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -47,6 +50,15 @@ public class Usuario implements UserDetails{
     @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST , CascadeType.REFRESH})
     private List<Captura> capturas;
 
+    public Usuario(DadosCadastroUsuarioDTO dados){
+        this.nome = dados.nome().trim();
+        this.email = dados.email().trim();
+        this.senha = passwordEncoder().encode(dados.senha());
+        if (dados.telefone() != null) this.telefone = dados.telefone().trim();
+        this.ativo = Boolean.TRUE;
+        if (dados.authorities() != null) this.acessos = dados.authorities().stream().map(a -> new Acesso(this, a)).toList();
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         var acessosUsuarioLogado = acessos.stream()
@@ -74,5 +86,7 @@ public class Usuario implements UserDetails{
         return getSenha();
     }
 
-
+    private PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
 }

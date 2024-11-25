@@ -131,5 +131,9 @@ CREATE TABLE parametros_fisiologicos (
 INSERT INTO usuarios (id, ativo, email             , nome     , senha                                                         )
 	 		  VALUES (1 , true , 'usuario@toly.com', 'Usuario', '$2a$12$7.ZKqbEjFT3vGRc/47xd5.etGVMMbtGp4KLSy6Uo1Qb6KJmCHoJIa');
 
+ALTER SEQUENCE public.usuarios_id_seq RESTART WITH 2;
+
 INSERT INTO acessos (id, usuario_id, authority)
 			 VALUES ( 1,          1, 'ADMIN'  );
+
+ALTER SEQUENCE public.acessos_id_seq RESTART WITH 2;

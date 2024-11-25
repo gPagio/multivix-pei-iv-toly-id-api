@@ -33,4 +33,9 @@ public class Acesso {
 
     @Enumerated(EnumType.STRING)
     private Authority authority;
+
+    public Acesso(Usuario usuario, Authority authority){
+        this.usuario = usuario;
+        this.authority = authority;
+    }
 }

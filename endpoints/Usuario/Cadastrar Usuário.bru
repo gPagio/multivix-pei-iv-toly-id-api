@@ -1,0 +1,20 @@
+meta {
+  name: Cadastrar Usuário
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{host}}/usuarios/cadastrar
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nome":"Silvio Santos",
+    "email":"silvio@toly.com",
+    "senha":"123456",
+    "authorities":["LISTAR"]
+  }
+}
